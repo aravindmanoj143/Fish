@@ -1,0 +1,33 @@
+<div class="file-manager-container">
+  <div class="side-menu">
+    <h3>Folders</h3>
+    <ul>
+      <li *ngFor="let folder of folders"
+          [class.selected]="folder.id === selectedFolderId"
+          (click)="loadFilesInFolder(folder.id)">
+        {{ folder.name }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="content-container">
+    <div *ngIf="loadingThumbnails" class="progress-bar">
+      <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+    </div>
+
+    <div class="pdf-container" *ngIf="!errorLoadingPdfFiles && pdfFiles.length > 0">
+      <div class="pdf-card" *ngFor="let file of pdfFiles" (click)="openPdfViewerDialog(file)">
+        <mat-card matTooltip="{{ file.name }}">
+          <img mat-card-image [src]="file.thumbnail || 'assets/no-thumbnail.png'" alt="{{ file.name }}">
+          <mat-card-content>
+            <p class="file-name">{{ file.name }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="empty" *ngIf="errorLoadingPdfFiles || pdfFiles.length === 0">
+      <span>No PDFs available.</span>
+    </div>
+  </div>
+</div>

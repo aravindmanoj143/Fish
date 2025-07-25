@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.pdf-container {
+  height: calc(100vh - 64px);
+  overflow: hidden;
+}
+.spacer { flex: 1 1 auto; }
+.error { color: #f44336; white-space: pre-wrap; }

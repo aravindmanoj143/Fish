@@ -1,0 +1,39 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title style="margin-left: 55px;">
+        <img src="/assets/dinamalarlogo.png">
+      </mat-card-title>
+      <mat-card-title class="logintext">Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="loginForm" >
+        <mat-form-field class="full-width">
+          <input
+            matInput
+            placeholder="Email"
+            type="email"
+            formControlName="email"
+            required
+            autocomplete="username"
+          >
+          <mat-error *ngIf="loginForm.get('email').hasError('required')">Email is required</mat-error>
+          <mat-error *ngIf="loginForm.get('email').hasError('email')">Invalid email format</mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input
+            matInput
+            placeholder="Password"
+            type="password"
+            formControlName="password"
+            required
+            autocomplete="current-password"
+          >
+          <mat-error *ngIf="loginForm.get('password').hasError('required')">Password is required</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

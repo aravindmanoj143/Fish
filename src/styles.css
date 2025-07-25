@@ -1,0 +1,28 @@
+
+
+.full-screen-modal .mat-dialog-container {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .mat-dialog-container {
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+  }
+
+    html{
+      overflow: hidden !important;
+    }
+
+    body, embed, html{
+      overflow: hidden;
+      scrollbar-width: thin;
+    }

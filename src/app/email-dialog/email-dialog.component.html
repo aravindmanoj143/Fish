@@ -1,0 +1,24 @@
+<div class="overlay" *ngIf="isDialogOpen">
+  <div class="dialog-content">
+    <button mat-icon-button color="primary" (click)="closeDialog()" class="close-button">
+      <mat-icon>close</mat-icon>
+    </button>
+    <div class="email-form-container">
+      <div class="from-container">
+        <span class="from-label">Logged in Email:</span>
+        <span class="from-email">{{ toemail }}</span>
+      </div>
+      <div class="button-container">
+        <button mat-fab extended color="primary" (click)="sendMail()" class="send-button">
+          <mat-icon>email</mat-icon>
+          Send
+        </button>
+      </div>
+      <mat-progress-bar *ngIf="isSendingEmail" mode="indeterminate"></mat-progress-bar>
+    </div>
+    <div class="attachment-preview">
+      <span>Attachment Preview:</span>
+      <img [src]="thumbnail" alt="PDF Thumbnail Preview" class="pdf-thumbnail-preview" />
+    </div>
+  </div>
+</div>
